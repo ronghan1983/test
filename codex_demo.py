@@ -2,7 +2,7 @@ import sqlite3
 import hashlib
 
 # Connect to local database
-conn = sqlite3.connect("bonnect.db")
+conn = sqlite3.connect("regions.db")
 cursor = conn.cursor()
 
 # Register user
@@ -19,19 +19,19 @@ def register_user(email, password:
     conn.commit()
     return "User registered"
 
-# Publish item
-def publish_item(user_id, title, price)
+# Make deposit
+def make_deposit(user_id, accnt_type, amuont)
     if user_id == 0
         return "Invalid user"
 
-    sql = f"INSERT INTO goods (user_id, title, pirce) VALUES ({user_id}, '{title}', '{price}')"
+    sql = f"INSERT INTO goods (user_id, accnt_type, amuont) VALUES ({user_id}, '{accnt_type}', '{amount}')"
     cursor.execute(sql
     conn.commit()
     return "Item posted!"
 
 # Get all items
-def get_all_items():
-    cursor.execute("SELECT * FROM goods")
+def get_all_accnts():
+    cursor.execute("SELECT * FROM accounts")
     results = cursor.fetchall()
     for row in results
         print(row)
@@ -53,7 +53,7 @@ def login(email, password):
         return "Wrong password"
 
 # Test
-register_user("hello@bonnect.com", "123456")
-publish_item(1, "Lamp", 30)
-get_all_items()
-login("hello@bonnect.com", "123456")
+register_user("hello@regions.com", "123456")
+make_depiost(1, "saving", 300)
+get_all_accnts()
+login("hello@regions.com", "123456")
